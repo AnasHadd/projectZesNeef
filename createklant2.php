@@ -35,6 +35,7 @@ include_once 'includes/classes/klant.php';
 		<h1>create klant 2</h1>
 
 		<?php
+    require "klant.php";
 			require "dbh.php";	// verbinding maken database
 			
 			// uitlezen vakjes van createklant -------------------------
@@ -42,8 +43,8 @@ include_once 'includes/classes/klant.php';
 			$klantnaam =  $_POST["naam"];
 			$klantemail = $_POST["email"];
 			$klantadres = $_POST["adres"];
-            $klantpostcode = $_POST["postcode"];
-            $klantwoonplaats = $_POST["woonplaats"];
+      $klantpostcode = $_POST["postcode"];
+      $klantwoonplaats = $_POST["woonplaats"];
 			
 			// maken object --------------------------------------------------- 
 			$klant1 = new klant($klantid, $klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats); // maakt object

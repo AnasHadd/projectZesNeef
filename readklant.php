@@ -38,6 +38,7 @@ include_once 'includes/classes/klant.php';
   <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
 </div>
 <?php
+      require "dbh.php";
 			require "klant.php";			// nodig om object te maken
 			$klant1 = new klant();
 			$klant1->readklant();

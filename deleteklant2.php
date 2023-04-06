@@ -1,4 +1,5 @@
 <?php
+require "dbh.php";
 require "klant.php";					// nodig om object te maken
 			$klantid = $_POST["klantidvak"];	// uitlezen vakje van deleteStudentForm1 
 			$klant1 = new klant();				// object aanmaken
