@@ -35,8 +35,9 @@ include_once 'includes/classes/klant.php';
 		<h1>create klant 2</h1>
 
 		<?php
-    require "klant.php";
-			require "dbh.php";	// verbinding maken database
+    // include_once 'includes/classes/dbh.php';
+include_once 'includes/classes/klant.php';
+  	// verbinding maken database
 			
 			// uitlezen vakjes van createklant -------------------------
 			$klantid = NULL;				// komt niet uit het formulier (auto increment)

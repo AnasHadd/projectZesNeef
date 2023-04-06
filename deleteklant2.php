@@ -1,6 +1,7 @@
 <?php
-require "dbh.php";
-require "klant.php";					// nodig om object te maken
+// include_once 'includes/classes/dbh.php';
+include_once 'includes/classes/klant.php';
+					
 			$klantid = $_POST["klantidvak"];	// uitlezen vakje van deleteStudentForm1 
 			$klant1 = new klant();				// object aanmaken
 			$klant1->searchklant($klantid);	
