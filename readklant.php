@@ -32,19 +32,16 @@ include_once 'includes/classes/klant.php';
   </div>
 </nav>
 
-    <div class="logoContainer">
-      <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
-      <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
-    </div>
-
-    <div class="middelStuk">
-      <div class="tabelContainer">
-        <div class="buttonContainer">
-          <a class="btn btn-outline-light" href="createklant.php" role="buttton">create</a>
-          <a class="btn btn-outline-light" href="readklant.php" role="buttton">read</a>
-          <a class="btn btn-outline-light" href="searchklant.php" role="buttton">search</a>
-          <a class="btn btn-outline-light" href="updateklant.php" role="buttton">update</a>
-          <a class="btn btn-outline-light" href="deletklant.php" role="buttton">delete</a>
-        </div>
+<!-- logo + bedrijf naam  -->
+<div class="logoContainer">
+  <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
+  <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
+</div>
+<?php
+			require "klant.php";			// nodig om object te maken
+			$klant1 = new klant();
+			$klant1->readklant();
+		?>
 </body>
+
 </html>

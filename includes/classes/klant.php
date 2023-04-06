@@ -56,42 +56,128 @@ class klant extends Dbh{
         public function getklantwoonplaats($klantwoonplaats){
                 return   $this->klantwoonplaats = $klantwoonplaats;
         }
-        public function createklant($klantid) {
-                // SLQ code voor de create
-                $sql = "CREATE FROM klant WHERE klantid = ?";
-                $stmt = $this->connect()->prepare($sql);
-        
-                // executes de sql code in de database en checkt of het goed is gegaan of niet
-                $stmt->execute([$klantid]);
-                if ($stmt->execute()) {
-                    echo "<script>console.log('klant has been created.')</script>";
-                } else {
-                    echo "<script>console.log('Er is iets fout gegaan, kon niet de klant createn.')</script>";
-                }
-            }public function updateklant($klantid) {
-                // SLQ code voor de update
-                $sql = "UPDATE FROM klant WHERE klantid = ?";
-                $stmt = $this->connect()->prepare($sql);
-        
-                // executes de sql code in de database en checkt of het goed is gegaan of niet
-                $stmt->execute([$klantid]);
-                if ($stmt->execute()) {
-                    echo "<script>console.log('klant has been updated.')</script>";
-                } else {
-                    echo "<script>console.log('Er is iets fout gegaan, kon de klant niet update.')</script>";
-                }
+        public function afdrukkenklant()
+		{
+			echo $this->getklantnaam();
+			echo "<br/>";
+			echo $this->getklantemail();
+			echo "<br/>";
+			echo $this->getklantadres();
+			echo "<br/><br/>";
+                        echo $this->getklantpostcode();
+			echo "<br/><br/>";
+                        echo $this->getklantwoonplaats();
+			echo "<br/><br/>";
+		}
+        public function createklant()		// gegevens in de database zetten
+        {
+                require "dbh.php";
+                // gegevens uit het object in variabelen zetten 
+                $klantid = NULL; 				// zit niet in het object
+                $klantnaam =  $this->getklantnaam();
+                $klantemail = $this->getklantemail();
+                $klantadres = $this->getklantadres();
+                $klantpostcode = $this->getklantpostcode();
+                $klantwoonplaats = $this->getklantwoonplaats();
+                
+                // statement maken voor invoer in de tabel
+                $sql = $conn->prepare
+                ("
+                        insert into klant values
+                        (:klantid, :klantnaam, :klantemail, :klantadres, :klantpostcode, :klantwoonplaats)
+                ");
+                // variabelen in de statement zetten
+                $sql->bindParam(":klantid", $klantid);
+                $sql->bindParam(":klantnaam", $klantnaam);
+                $sql->bindParam(":klantemail", $klantemail);
+                $sql->bindParam(":klantadres",  $klantadres);
+                $sql->bindParam(":klantpostcode",  $klantpostcode);
+                $sql->bindParam(":klantwoonplaats",  $klantwoonplaats);
+                $sql->execute();
+                // melding 
+                echo "Deze klant is toegevoegd: <br/>";
+
         }
-        public function deleteklant($klantid) {
-                // SLQ code voor de delete
-                $sql = "DELETE FROM klant WHERE klantid = ?";
-                $stmt = $this->connect()->prepare($sql);
-        
-                // executes de sql code in de database en checkt of het goed is gegaan of niet
-                $stmt->execute([$klantid]);
-                if ($stmt->execute()) {
-                    echo "<script>console.log('klant has been deleted.')</script>";
-                } else {
-                    echo "<script>console.log('Er is iets fout gegaan, kon niet de klant deleten.')</script>";
-                }
+            public function readklant()
+            {
+                    require "dbh.php";
+                    // statement maken
+                    $sql = $conn->prepare("
+                        select klantid, klantnaam, klantemail, klantadres, klantpostcode, klanwoonplaats 
+                        from klant  
+                         ");
+                    $sql->execute();
+                    foreach($sql as $klant)
+                    {
+                            // gegevens uit de array in het object stoppen
+                            // en gelijk afdrukken
+                            echo $klant["klantid"]. " - ";		// geen eigenschap van object
+                            echo $this->klantnaam=$klant["klantnaam"]. " - ";
+                            echo $this->klantemail=$klant["email"]. " - ";
+                            echo $this->klantadres=$klant["adres"]. " - ";
+                            echo $this->klantpostcode=$klant["postcode"]. " - ";
+                            echo $this->klantwoonplaats=$klant["woonplaats"]. "<br/>";
+                    }
             }
+            public function searchklant($klantid)
+		{
+			require "dbh.php";
+
+			// statement maken
+			$sql = $conn->prepare("select klantid, klantnaam, klantemail, klantadres, klantpostcode, klanwoonplaats 
+                        from klant  			
+			 ");
+			// variabele in de stament zetten
+			$sql->bindParam(":klantid", $klantid);
+			$sql->execute();
+
+			// gegevens uit de array in het object stoppen
+			foreach($sql as $klant)
+			{			
+				//echo $student["studentid"]. "<br/>";		// geen eigenschap van object
+				$this->klantnaam=$klant["klantnaam"];
+				$this->klantemail=$klant["klantemail"];
+				$this->klantadres=$klant["klantadres"];	
+                                $this->klantpostcode=$klant["klantpostcode"];	
+                                $this->klantwoonplaats=$klant["klantwoonplaats"];			
+			}
+		}
+            public function updateklant($klantid)
+		{
+			require "dbh.php";
+			// gegevens uit het object in variabelen zetten 
+			$klantid;
+			$klantnaam      = $this->getklantnaam();
+			$klantemail 	= $this->getklantemail();
+			$klantadres 	= $this->getklantadres();
+                        $klantpostcode 	= $this->getklantpostcode();
+                        $klantwoonplaats = $this->getklantwoonplaats();
+			// statement maken
+			$sql = $conn->prepare("
+			update klant
+			set klantnaam=:klantnaam, klantemail=:klantemail, klantadres=:klantadres, klantpostcode=:klantpostcode, klantwoonplaats=:klantwoonplaats
+			where klantid=:klantid
+			");
+			// variabelen in de statement zetten
+			$sql->bindParam(":klantid", $klantid);
+			$sql->bindParam(":klantnaam", $klantnaam);
+			$sql->bindParam(":klantemail", $klantemail);
+			$sql->bindParam(":klantadres", $klantadres);
+                        $sql->bindParam(":klantpostcode", $klantpostcode);
+                        $sql->bindParam(":klantwoonplaats", $klantwoonplaats);
+			$sql->execute();
+		}
+		public function deleteklant($klanttid)
+		{
+			require "dbh.php";
+			// statement maken
+			$sql = $conn->prepare("
+			delete from klant
+			where klantid = :klantid
+			");
+			// variabele in de statement zetten
+			$sql->bindParam(":klantid", $klantid);
+			$sql->execute();
+		}
+		
 }

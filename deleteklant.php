@@ -32,19 +32,18 @@ include_once 'includes/classes/klant.php';
   </div>
 </nav>
 
-    <div class="logoContainer">
-      <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
-      <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
-    </div>
+<!-- logo + bedrijf naam  -->
+<div class="logoContainer">
+  <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
+  <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
+</div>
+<h1>delete klant 1</h1>
+			<form action="deleteklant2.php" method="post">
+			<label for="klantid">klantid:</label>
+			<input type="text" id = "klantid" name="klantidvak">
+			<input type="submit">
+		</form>
 
-    <div class="middelStuk">
-      <div class="tabelContainer">
-        <div class="buttonContainer">
-          <a class="btn btn-outline-light" href="createklant.php" role="buttton">create</a>
-          <a class="btn btn-outline-light" href="readklant.php" role="buttton">read</a>
-          <a class="btn btn-outline-light" href="searchklant.php" role="buttton">search</a>
-          <a class="btn btn-outline-light" href="updateklant.php" role="buttton">update</a>
-          <a class="btn btn-outline-light" href="deletklant.php" role="buttton">delete</a>
-        </div>
 </body>
+
 </html>
