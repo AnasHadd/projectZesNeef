@@ -1,6 +1,6 @@
 <?php
 // include_once 'includes/classes/dbh.php';
-include_once 'includes/classes/artikelen.php';
+include_once 'includes/classes/klant.php';
 ?>
 <!doctype html>
 <html lang="NL">
@@ -23,22 +23,27 @@ include_once 'includes/classes/artikelen.php';
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        <a class="nav-link" aria-current="page" href="index.php">Home</a>
         <a class="nav-link" href="magazijnMeesterMenu.php">magazijnMeester</a>
         <a class="nav-link" href="leverancierPage.php">Leverancier</a>
-        <a class='nav-link' href='klantpage.php'>klant</a>
+        <a class='nav-link active' href='klantpage.php'>klant</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- logo + bedrijf naam  -->
-<div class="logoContainer">
-  <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
-  <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
-</div>
+    <div class="logoContainer">
+      <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
+      <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
+    </div>
 
-
+    <div class="middelStuk">
+      <div class="tabelContainer">
+        <div class="buttonContainer">
+          <a class="btn btn-outline-light" href="createklant.php" role="buttton">create</a>
+          <a class="btn btn-outline-light" href="#" role="buttton">read</a>
+          <a class="btn btn-outline-light" href="#" role="buttton">update</a>
+          <a class="btn btn-outline-light" href="#" role="buttton">delete</a>
+        </div>
 </body>
-
 </html>

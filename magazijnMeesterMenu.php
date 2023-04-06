@@ -29,6 +29,7 @@ include_once 'includes/classes/artikelen.php';
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
             <a class="nav-link active" href="magazijnMeesterMenu.php">magazijnMeester</a>
             <a class="nav-link" href="leverancierPage.php">Leverancier</a>
+            <a class='nav-link' href='klantpage.php'>klant</a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <?php
 // include_once 'includes/classes/dbh.php';
-include_once 'includes/classes/artikelen.php';
+include_once 'includes/classes/klant.php';
 ?>
 <!doctype html>
 <html lang="NL">
@@ -23,22 +23,33 @@ include_once 'includes/classes/artikelen.php';
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        <a class="nav-link" aria-current="page" href="index.php">Home</a>
         <a class="nav-link" href="magazijnMeesterMenu.php">magazijnMeester</a>
         <a class="nav-link" href="leverancierPage.php">Leverancier</a>
-        <a class='nav-link' href='klantpage.php'>klant</a>
+        <a class='nav-link active' href='klantpage.php'>klant</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- logo + bedrijf naam  -->
-<div class="logoContainer">
-  <img src="./includes/images/Bas-Logo.png" alt="Bas Logo">
-  <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
-</div>
+		<h1>create klant 2</h1>
 
-
-</body>
-
+		<?php
+			require "klant.php"; // nodig om object te maken
+			require "dbh.php";	// verbinding maken database
+			
+			// uitlezen vakjes van createklant -------------------------
+			$klantid = NULL;				// komt niet uit het formulier (auto increment)
+			$klantnaam =  $_POST["naam"];
+			$klantemail = $_POST["email"];
+			$klantadres = $_POST["adres"];
+            $klantpostcode = $_POST["postcode"];
+            $klantwoonplaats = $_POST["woonplaats"];
+			
+			// maken object --------------------------------------------------- 
+			$klant1 = new klant($klantid, $klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats); // maakt object
+			$klant1->createklant();		// zet het object in de tabel
+			$klant1->afdrukkenklant();	// drukt objectgegevens af
+		?>
+		</body>
 </html>

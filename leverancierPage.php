@@ -27,6 +27,7 @@ include_once 'includes/classes/leverancier.php'
         <a class="nav-link" aria-current="page" href="index.php">Home</a>
         <a class="nav-link" href="magazijnMeesterMenu.php">magazijnMeester</a>
         <a class="nav-link active" href="leverancierPage.php">Leverancier</a>
+        <a class='nav-link' href='klantpage.php'>klant</a>
       </div>
     </div>
   </div>
