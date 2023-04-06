@@ -44,7 +44,7 @@ include_once 'includes/classes/klant.php';
           <a class="btn btn-outline-light" href="readklant.php" role="buttton">read</a>
           <a class="btn btn-outline-light" href="searchklant.php" role="buttton">search</a>
           <a class="btn btn-outline-light" href="updateklant.php" role="buttton">update</a>
-          <a class="btn btn-outline-light" href="deletklant.php" role="buttton">delete</a>
+          <a class="btn btn-outline-light" href="deleteklant.php" role="buttton">delete</a>
         </div>
 </body>
 </html>

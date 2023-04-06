@@ -35,7 +35,6 @@ include_once 'includes/classes/klant.php';
 		<h1>create klant 2</h1>
 
 		<?php
-			require "klant.php"; // nodig om object te maken
 			require "dbh.php";	// verbinding maken database
 			
 			// uitlezen vakjes van createklant -------------------------
