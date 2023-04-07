@@ -3,71 +3,35 @@
 <?php
 include_once 'includes/classes/dbh.php';
 
-class Artikelen extends Dbh
-{
-    public string $artOmschrijving;
-
+class Artikelen extends data {
+    
     // reads alle omschrijvingen van de artikelen
-    public function getOmschrijving()
-    {
+    public function getOmschrijving() {
 
         $sql = "SELECT * FROM artikelen";
-        $stmt = $this->connect()->query($sql);
+        $stmst = $this->connect()->query($sql);
         // gebruikt hier fetch omdat er toch geen user input is, dus kan er geen SQL injectie komen 
-        while ($row = $stmt->fetch()) {
+        while ($row = $stmst->fetch()) {
             echo $row['artOmschrijving'] . '<br>';
         }
     }
 
-    public function getTabelById($artId)
-    {
-        // hier ook gewoon fetch voor de zelfde reden
-        $sql = "SELECT * FROM artikelen WHERE artId = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$artId]);
-        $ids = $stmt->fetchAll();
-
-        foreach ($ids as $id) {
-            echo "<td>" . $id["artId"] . "</td><td>" . $id["artOmschrijving"] . "</td><td>" . $id["artInkoop"] . "</td><td>"
-                . $id["artVerkoop"] . "</td><td>" . $id["artMinVoorraad"] . "</td><td>" . $id["artMaxVoorraad"] . "</td><td>"
-                . $id["artLocatie"] . "</td><td>" . $id["levId"] . "</td>";
-        }
-    }
-
-    public function getAlleTabellen()
-    {
-        $sql = "SELECT * FROM artikelen";
-        $stmt = $this->connect()->query($sql);
-
-        if ($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<tr><td>" . $row["artId"] . "</td><td>" . $row["artOmschrijving"] . "</td><td>" . $row["artInkoop"] . "</td><td>"
-                    . $row["artVerkoop"] . "</td><td>" . $row["artMinVoorraad"] . "</td><td>" . $row["artMaxVoorraad"] . "</td><td>"
-                    . $row["artLocatie"] . "</td><td>" . "</td></tr>";
-            }
-        } else {
-            echo "No results";
-        }
-    }
-
     // reads alle omschrijvingen van de artikelen van de gegeven ID
-    public function getOmschrijvingID($levId)
-    {
+    public function getOmschrijvingStmt($ID) {
 
         // hier ook gewoon fetch voor de zelfde reden
         $sql = "SELECT * FROM artikelen WHERE artId = ?";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$levId]);
+        $stmt->execute([$ID]);
         $ids = $stmt->fetchAll();
 
-        foreach ($ids as $id) {
+        foreach($ids as $id) {
             echo $id['artOmschrijving'] . '<br>';
         }
     }
 
     // creates een nieuwe tabel voor artikelen
-    public function setOmschrijvingStmt($artOmschrijving, $artInkoop, $artVerkoop, $artMinVoorraad, $artMaxVoorraad, $artLocatie, $levId)
-    {
+    public function setOmschrijvingStmt($artOmschrijving, $artInkoop, $artVerkoop, $artMinVoorraad, $artMaxVoorraad, $artLocatie, $levId) {
 
         // maakt SQL code voor de databas en gebruikt prepare zodat er geen SQL injectie kan gedaan worden
         $sql = "INSERT INTO artikelen(artOmschrijving, artInkoop, artVerkoop, artMinVoorraad, artMaxVoorraad, artLocatie, levId) 
@@ -83,8 +47,7 @@ class Artikelen extends Dbh
         }
     }
 
-    public function updateAllArtikelen($artOmschrijving, $artInkoop, $artVerkoop, $artMinVoorraad, $artMaxVoorraad, $artLocatie, $levId, $artId,)
-    {
+    public function updateAllArtikelen($artOmschrijving, $artInkoop, $artVerkoop, $artMinVoorraad, $artMaxVoorraad, $artLocatie, $levId, $artId,) {
         $sql = "UPDATE artikelen SET artOmschrijving = ?, artInkoop = ?, artVerkoop = ?, artMinVoorraad = ?, artMaxVoorraad = ?, 
         artLocatie = ?, levId = ? WHERE artId = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -98,8 +61,7 @@ class Artikelen extends Dbh
         }
     }
 
-    public function deleteArtikelen($artId)
-    {
+    public function deleteArtikelen($artId) {
         // SLQ code voor de delete
         $sql = "DELETE FROM artikelen WHERE artId = ?";
         $stmt = $this->connect()->prepare($sql);
