@@ -3,7 +3,7 @@
 <?php
 include_once 'includes/classes/dbh.php';
 
-class Leverancier extends Dbh {
+class Leverancier extends data {
 
 
     function setLevId($idInput, $levID) {
