@@ -2,7 +2,7 @@
 
 // Florian Koning
 
-class Dbh
+class data
 {
     // variabelen
     private $IP;

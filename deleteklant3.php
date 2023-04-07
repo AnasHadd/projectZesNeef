@@ -1,6 +1,7 @@
 <h1>delete klant 3</h1>
 		
 		<?php
+		//Anas Haddouch//
 			require "klant.php";
 
 		    $klantid = $_POST["klantidvak"];

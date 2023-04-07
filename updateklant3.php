@@ -1,4 +1,5 @@
 <?php
+//Anas Haddouch//
 			require "klant.php";
 
             // gegevens uit de array in variabelen stoppen

@@ -2,7 +2,7 @@
 //Anas Hddouch//
 include_once 'includes/classes/dbh.php';
 
-class klant extends Dbh{
+class klant{
         public $klantid;
         public $klantnaam;
         public $klantemail;
