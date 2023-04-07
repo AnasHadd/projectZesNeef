@@ -3,14 +3,14 @@
 include_once 'includes/classes/dbh.php';
 
 class klant extends Dbh{
-        protected $klantid;
-        protected $klantnaam;
-        protected $klantemail;
-        protected$klantadres;
-        protected $klantpostcode;
-        protected $klantwoonplaats;
+        public $klantid;
+        public $klantnaam;
+        public $klantemail;
+        public $klantadres;
+        public $klantpostcode;
+        public $klantwoonplaats;
 
-        public function __construct($klantid=0, $klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats){
+        public function __construct($klantid=0, $klantnaam="", $klantemail="", $klantadres="", $klantpostcode="", $klantwoonplaats=""){
 
            $this->klantid = $klantid;
            $this->klantnaam = $klantnaam;
