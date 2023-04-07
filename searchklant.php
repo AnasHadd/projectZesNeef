@@ -37,7 +37,7 @@ include_once 'includes/classes/klant.php';
   <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
 </div>
 <?php
-			require "klant.php";
+			include_once 'includes/classes/klant.php';
 			$klant1 = new klant();
 		?>
 </body>

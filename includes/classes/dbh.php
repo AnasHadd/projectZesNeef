@@ -14,7 +14,7 @@ class Dbh
     {
         // alle variabelen die nodig zijn om met de database te verbinden
         $this->IP = "localhost";
-        $this->DBName = "bas_database";
+        $this->DBName = "bas";
         $this->userName = "root";
         $this->password = "";
 

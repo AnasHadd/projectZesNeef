@@ -35,7 +35,7 @@ include_once 'includes/classes/klant.php';
 
 		<?php
 include_once 'includes/classes/klant.php';
-  	// verbinding maken database
+  	
 			
 			// uitlezen vakjes van createklant -------------------------
 			$klantid = NULL;				// komt niet uit het formulier (auto increment)
