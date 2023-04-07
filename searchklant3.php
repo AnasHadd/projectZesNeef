@@ -1,7 +1,7 @@
 <?php
 			//AnasHaddouch//
-			require "klant.php";			// nodig om object te maken
-			require "dbh.php";	// verbinding maken database
+			require_once "klant.php";			// nodig om object te maken
+			require_once "dbh.php";	// verbinding maken database
 			
 		
 			$klantid = $_POST["klantidvak"];

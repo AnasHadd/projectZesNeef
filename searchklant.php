@@ -39,9 +39,12 @@ include_once 'includes/classes/klant.php';
 </div>
 <div class="middelStuk">
   <div class="tabelContainer">
-<form class="d-flex" role="search">
+<form class="d-flex" role="search" action="searchklant3.php" method="post">
         <button type="button" class="btn btn-outline-light" style="margin-right: 500px;"><a href="
         klantpage.php" style="text-decoration: none; color: white;">Terug</a></button>
+        <label for="klantid">Naam:</label>
+			<input type="text" id = "klantid" name="klantidvak"><br/>
+			<input type="submit">
         <input class="form-control me-2" name="inputID" type="search" placeholder="Search" aria-label="Search" style="border: 1.5px solid #1c2128; width: 200px;">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
