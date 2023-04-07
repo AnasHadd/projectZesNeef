@@ -1,5 +1,4 @@
 <?php
-// include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
 ?>
 <!doctype html>
@@ -38,7 +37,7 @@ include_once 'includes/classes/klant.php';
   <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
 </div>
 <?php
-					// nodig om object te make
+			require "klant.php";
 			$klant1 = new klant();
 		?>
 </body>

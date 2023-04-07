@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="NL">
 <head>
@@ -35,7 +34,6 @@
   <h3>Boodschappenservice Bas Brengt Boodschappen</h3>
 </div>
 <?php
-    	// include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
 			$klant1 = new klant();
 			$klant1->readklant();

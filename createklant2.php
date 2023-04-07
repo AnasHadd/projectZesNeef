@@ -1,5 +1,4 @@
 <?php
-// include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
 ?>
 <!doctype html>
@@ -35,17 +34,16 @@ include_once 'includes/classes/klant.php';
 		<h1>create klant 2</h1>
 
 		<?php
-    // include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
   	// verbinding maken database
 			
 			// uitlezen vakjes van createklant -------------------------
 			$klantid = NULL;				// komt niet uit het formulier (auto increment)
-			$klantnaam =  $_POST["naam"];
-			$klantemail = $_POST["email"];
-			$klantadres = $_POST["adres"];
-      $klantpostcode = $_POST["postcode"];
-      $klantwoonplaats = $_POST["woonplaats"];
+			$klantnaam =  $_POST["klantnaam"];
+			$klantemail = $_POST["klantemail"];
+			$klantadres = $_POST["klantadres"];
+      $klantpostcode = $_POST["klantpostcode"];
+      $klantwoonplaats = $_POST["klantwoonplaats"];
 			
 			// maken object --------------------------------------------------- 
 			$klant1 = new klant($klantid, $klantnaam, $klantemail, $klantadres, $klantpostcode, $klantwoonplaats); // maakt object

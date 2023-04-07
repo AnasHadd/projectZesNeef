@@ -1,5 +1,4 @@
 <?php
-// include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
 					
 			$klantid = $_POST["klantidvak"];	// uitlezen vakje van deleteStudentForm1 

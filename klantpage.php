@@ -1,5 +1,4 @@
 <?php
-// include_once 'includes/classes/dbh.php';
 include_once 'includes/classes/klant.php';
 ?>
 <!doctype html>
